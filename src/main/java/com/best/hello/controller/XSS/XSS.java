@@ -1,13 +1,12 @@
 package com.best.hello.controller.XSS;
 
+import com.best.hello.entity.Person;
 import com.best.hello.util.Security;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 import org.owasp.esapi.ESAPI;
 
@@ -85,6 +84,13 @@ public class XSS {
     public static String safe4(String content) {
         log.info("[safe] ESAPI：" + content);
         return ESAPI.encoder().encodeForHTML(content);
+    }
+
+    @ApiOperation(value = "safe: ESAPI", notes = "采用ESAPI过滤")
+    @PostMapping("/filterRichText")
+    public static String safe4(@RequestBody Person person) {
+        log.info("[safe] filterRichText：" + person);
+        return person.getName();
     }
 
 }
