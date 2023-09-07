@@ -8,7 +8,7 @@
     <meta name="description" content="Java Sec">
     <meta name="author" content="nul1">
 
-    <title>Security-Starter</title>
+    <title>开发安全SDK测试</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap4.min.css}">
     <link rel="stylesheet" th:href="@{/css/base.css}">
     <link rel="stylesheet" th:href="@{/css/codemirror.css}">
@@ -68,7 +68,7 @@
                 <a href="#xss_submenu" data-toggle="collapse"
                    th:class="${(active=='xstream.html' || active=='shiro.html' || active=='fastjson.html' || active=='log4j.html' || active=='jackson.html') ? 'nav-link active':'nav-link'}"><i
                         class="lnr lnr-drop"></i>
-                    <span>xss测试</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <span>XSS安全防护工具类</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 
                 <div id="xss_submenu"
                      th:class="${(active=='escapeHtml.html' || active=='escapeJavaScript.html' || active=='escapeCss.html' || active=='encodeUrl.html' || active=='filterRichText.html') ? 'collapsed':'collapse'}">
@@ -76,38 +76,38 @@
                         <li>
                             <a th:class="${active=='escapeHtml.html' ? 'nav-link active':'nav-link'}"
                                th:href="@{/index/xss/escapeHtml}">
-                                <i class="lnr lnr-bug"></i><span>escapeHtml</span></a>
+                                <i class="lnr lnr-bug"></i><span>HTML内容转义</span></a>
                         </li>
                         <li>
                             <a th:class="${active=='escapeJavaScript.html' ? 'nav-link active':'nav-link'}"
                                th:href="@{/index/xss/escapeJavaScript}">
-                                <i class="lnr lnr-bug"></i><span>escapeJavaScript</span></a>
+                                <i class="lnr lnr-bug"></i><span>JavaScript内容转义</span></a>
                         </li>
                         <li>
                             <a th:class="${active=='escapeCss.html' ? 'nav-link active':'nav-link'}"
                                th:href="@{/index/xss/escapeCss}">
-                                <i class="lnr lnr-bug"></i><span>escapeCss</span></a>
+                                <i class="lnr lnr-bug"></i><span>CSS内容转义</span></a>
                         </li>
                         <li>
                             <a th:class="${active=='encodeUrl.html' ? 'nav-link active':'nav-link'}"
                                th:href="@{/index/xss/encodeUrl}">
-                                <i class="lnr lnr-bug"></i><span>encodeUrl</span></a>
+                                <i class="lnr lnr-bug"></i><span>Url内容编码</span></a>
                         </li>
                         <li>
                             <a th:class="${active=='filterRichText.html' ? 'nav-link active':'nav-link'}"
                                th:href="@{/index/xss/filterRichText}">
-                                <i class="lnr lnr-bug"></i><span>filterRichText</span></a>
+                                <i class="lnr lnr-bug"></i><span>富文本框内容过滤</span></a>
                         </li>
 
                     </ul>
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a th:class="${(active=='xss.html') ? 'nav-link active':'nav-link'}" th:href="@{/index/xss}">
-                    <i class="lnr lnr-cross"></i><span>XSS</span>
-                </a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--                <a th:class="${(active=='xss.html') ? 'nav-link active':'nav-link'}" th:href="@{/index/xss}">-->
+<!--                    <i class="lnr lnr-cross"></i><span>XSS</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
 <!--            <li class="nav-item">-->
 <!--                <a href="#sql_submenu"-->
@@ -342,31 +342,43 @@
     <script th:src="@{/js/bootstrap-4.6.0.min.js}"></script>
     <script th:src="@{/js/codemirror.js}"></script>
     <script th:src="@{/js/groovy.js}"></script>
+    <script th:src="@{/js/tinymce/tinymce.min.js}"></script>
+    <script>
+        tinymce.init({
+          selector: '#mytextarea1,#mytextarea3',
+          height: 260,
+          plugins: 'advlist autolink lists link image charmap preview anchor',
+          toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image',
+        });
+    </script>
+
 </div>
 
 <div th:fragment="codemirror">
     <script>
-        const editorConfig = {
-            mode: "groovy",
-            indentUnit: 4,
-            indentWithTabs: true,
-            lineNumbers: true,
-            theme: "mdn-like"
-        };
+<!--        const editorConfig = {-->
+<!--            mode: "groovy",-->
+<!--            indentUnit: 4,-->
+<!--            indentWithTabs: true,-->
+<!--            lineNumbers: true,-->
+<!--            theme: "mdn-like"-->
+<!--        };-->
 
-        function createEditor(id) {
-            const editor = CodeMirror.fromTextArea(document.getElementById(id), editorConfig);
-            $("#" + id).text(editor.getValue());
-            editor.setSize('', '450px');
-        }
+<!--        function createEditor(id) {-->
+<!--            if (document.getElementById(id)){-->
+<!--               const editor = CodeMirror.fromTextArea(document.getElementById(id), editorConfig);-->
+<!--                $("#" + id).text(editor.getValue());-->
+<!--                editor.setSize('', '450px');-->
+<!--            }-->
+<!--        }-->
 
-        createEditor("code1");
-        createEditor("code2");
-        createEditor("code3");
-        createEditor("code4");
-        createEditor("code5");
-        createEditor("code6");
-        createEditor("code7");
+<!--        createEditor("code1");-->
+<!--        createEditor("code2");-->
+<!--        createEditor("code3");-->
+<!--        createEditor("code4");-->
+<!--        createEditor("code5");-->
+<!--        createEditor("code6");-->
+<!--        createEditor("code7");-->
     </script>
 </div>
 

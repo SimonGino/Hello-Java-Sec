@@ -6,15 +6,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import org.owasp.esapi.ESAPI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
-import org.owasp.esapi.ESAPI;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * XSS漏洞
@@ -29,6 +28,47 @@ import org.slf4j.LoggerFactory;
 public class XSS {
 
     static Logger log = LoggerFactory.getLogger(XSS.class);
+
+    @ApiOperation(value = "vul: 反射型XSS")
+    @GetMapping("/escapeHtml")
+    public static String escapeHtml(String content) {
+        log.info("[vul] 反射型XSS：" + content);
+        return content;
+    }
+
+
+    @ApiOperation(value = "vul: 反射型XSS")
+    @GetMapping("/escapeJavascript")
+    public static String escapeJavascript(String content) {
+        log.info("[vul] 反射型XSS：" + content);
+        return content;
+    }
+
+
+
+    @ApiOperation(value = "vul: 反射型XSS")
+    @GetMapping("/escapeCss")
+    public static String escapeCss(String content) {
+        log.info("[vul] 反射型XSS：" + content);
+        return content;
+    }
+
+
+
+    @ApiOperation(value = "vul: 反射型XSS")
+    @GetMapping("/encodeUrl")
+    public static String encodeUrl(String content) {
+        log.info("[vul] 反射型XSS：" + content);
+        return content;
+    }
+
+    @ApiOperation(value = "safe: ESAPI", notes = "采用ESAPI过滤")
+    @PostMapping("/filterRichText")
+    public static String safe4(@RequestBody RichTextDTO richTextDTO) {
+        log.info("[safe] filterRichText：" + richTextDTO);
+        return HtmlUtils.htmlUnescape(richTextDTO.getContent());
+    }
+
 
     @ApiOperation(value = "vul: 反射型XSS")
     @GetMapping("/reflect")
@@ -86,11 +126,6 @@ public class XSS {
         return ESAPI.encoder().encodeForHTML(content);
     }
 
-    @ApiOperation(value = "safe: ESAPI", notes = "采用ESAPI过滤")
-    @PostMapping("/filterRichText")
-    public static String safe4(@RequestBody Person person) {
-        log.info("[safe] filterRichText：" + person);
-        return person.getName();
-    }
+
 
 }
