@@ -66,7 +66,9 @@ public class XssSecurity {
     @PostMapping("/filterRichText")
     public static String filterRichText(@RequestBody RichTextDTO richTextDTO) {
         log.info("[vul] 反射型XSS：" + richTextDTO);
-        return YumXssUtil.filterRichTextBoxContent(richTextDTO.getContent());
+        String content = HtmlUtils.htmlUnescape(richTextDTO.getContent());
+
+        return YumXssUtil.filterRichTextBoxContent(content);
     }
 
     @GetMapping("/vul2")
