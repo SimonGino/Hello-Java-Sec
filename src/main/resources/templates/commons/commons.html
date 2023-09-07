@@ -342,31 +342,43 @@
     <script th:src="@{/js/bootstrap-4.6.0.min.js}"></script>
     <script th:src="@{/js/codemirror.js}"></script>
     <script th:src="@{/js/groovy.js}"></script>
+    <script th:src="@{/js/tinymce/tinymce.min.js}"></script>
+    <script>
+        tinymce.init({
+          selector: '#mytextarea1,#mytextarea3',
+          height: 260,
+          plugins: 'advlist autolink lists link image charmap preview anchor',
+          toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image',
+        });
+    </script>
+
 </div>
 
 <div th:fragment="codemirror">
     <script>
-        const editorConfig = {
-            mode: "groovy",
-            indentUnit: 4,
-            indentWithTabs: true,
-            lineNumbers: true,
-            theme: "mdn-like"
-        };
+<!--        const editorConfig = {-->
+<!--            mode: "groovy",-->
+<!--            indentUnit: 4,-->
+<!--            indentWithTabs: true,-->
+<!--            lineNumbers: true,-->
+<!--            theme: "mdn-like"-->
+<!--        };-->
 
-        function createEditor(id) {
-            const editor = CodeMirror.fromTextArea(document.getElementById(id), editorConfig);
-            $("#" + id).text(editor.getValue());
-            editor.setSize('', '450px');
-        }
+<!--        function createEditor(id) {-->
+<!--            if (document.getElementById(id)){-->
+<!--               const editor = CodeMirror.fromTextArea(document.getElementById(id), editorConfig);-->
+<!--                $("#" + id).text(editor.getValue());-->
+<!--                editor.setSize('', '450px');-->
+<!--            }-->
+<!--        }-->
 
-        createEditor("code1");
-        createEditor("code2");
-        createEditor("code3");
-        createEditor("code4");
-        createEditor("code5");
-        createEditor("code6");
-        createEditor("code7");
+<!--        createEditor("code1");-->
+<!--        createEditor("code2");-->
+<!--        createEditor("code3");-->
+<!--        createEditor("code4");-->
+<!--        createEditor("code5");-->
+<!--        createEditor("code6");-->
+<!--        createEditor("code7");-->
     </script>
 </div>
 
