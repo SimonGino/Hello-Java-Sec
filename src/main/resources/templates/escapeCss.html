@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{commons/commons::head}"></div>
+  <div th:replace="~{commons/commons::head}"></div>
 
-<body>
-<!-- 顶部导航栏 -->
-<div th:replace="~{commons/commons::topbar}"></div>
+  <body>
+    <!-- 顶部导航栏 -->
+    <div th:replace="~{commons/commons::topbar}"></div>
 
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+      <div class="row">
         <!-- 侧边栏 -->
-        <div th:replace="~{commons/commons::siderbar(active='escapeCss.html')}"></div>
+        <div
+          th:replace="~{commons/commons::siderbar(active='escapeCss.html')}"
+        ></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="vul_header">
-                <span>CSS内容转义</span>
-            </div>
-            <h3></h3>
-            <hr>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#aa"><span class="lnr lnr-bug"></span>
-                        漏洞描述</a>
-                </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>-->
-<!--                </li>-->
-            </ul>
+          <div class="vul_header">
+            <span>CSS内容转义</span>
+          </div>
+          <h3></h3>
+          <hr />
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#aa"
+                ><span class="lnr lnr-bug"></span> 漏洞描述</a
+              >
+            </li>
+            <!--                <li class="nav-item">-->
+            <!--                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>-->
+            <!--                </li>-->
+          </ul>
 
-            <div class="tab-content">
-                <div class="tab-pane dec shadow-sm p-3 mb-4 rounded active" id="aa">
-                    【03-CSS内容】：转义特殊符号
-                    <ul>
-                    <li>" 替换为\";</li>
-                    <li>' 替换为\';
-                    <li>\ 替换为 \\</li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="bb">
-                    <label for="coder"></label><textarea disabled="disabled"
-                                                         class="form-control shadow-sm p-3 mb-5 rounded" id="coder"
-                                                         style="height: 260px;">
+          <div class="tab-content">
+            <div class="tab-pane dec shadow-sm p-3 mb-4 rounded active" id="aa">
+              【03-CSS内容】：转义特殊符号
+              <ul>
+                <li>" 替换为\";</li>
+                <li>' 替换为\';</li>
+                <li>\ 替换为 \\</li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="bb">
+              <label for="coder"></label
+              ><textarea
+                disabled="disabled"
+                class="form-control shadow-sm p-3 mb-5 rounded"
+                id="coder"
+                style="height: 260px"
+              >
 【必须】外部输入拼接到response页面前进行编码处理
  当响应“content-type”为“html”类型时，外部输入拼接到响应包中，需根据输出位置进行编码处理,需要对以下6个特殊字符进行HTML实体编码(&, <, >, ", ',/)，也可参考或直接使用业界已有成熟第三方库如ESAPI。
 
@@ -48,100 +55,161 @@
 
 【建议】设置安全的HTTP响应头
  控制用户登录鉴权的Cookie字段 应当设置HttpOnly属性以防止被XSS漏洞/JavaScript操纵泄漏。
-                    </textarea>
-                </div>
+                    </textarea
+              >
             </div>
-            <hr>
+          </div>
+          <hr />
 
-            <div class="box-float">
-                <div class="float1">
-                    <a id="runButton1" style="float:right" class="btn btn-sm btn-danger" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
-                             viewBox="0 0 16 16">
-                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                        </svg>
-                        <span class="align-middle"> Run</span></a>
-                    <h5><span class="lnr lnr-bug"> 漏洞代码</span></h5>
+          <div class="box-float">
+            <div class="float1">
+              <a
+                id="runButton1"
+                style="float: right"
+                class="btn btn-sm btn-danger"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                  />
+                </svg>
+                <span class="align-middle"> Run</span></a
+              >
+              <h5><span class="lnr lnr-bug"> 漏洞代码</span></h5>
 
-                    <label for="code1"></label><textarea class="form-control" id="code1"><script>alert('xss');</script></textarea><br><br>
-
-
-                </div>
-
-                <div class="float2">
-
-                    <a id="runButton3"  style="float:right" class="btn btn-sm btn-success text-right" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
-                             viewBox="0 0 16 16">
-                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                        </svg>
-                        <span class="align-middle"> Run</span></a>
-                    <h5><span class="lnr lnr-smile"> 安全代码 </span></h5>
-                    <label for="code3"></label><textarea class="form-control" id="code3"><script>alert('xss');</script></textarea><br><br>
-
-
-
-                </div>
-
+              <label for="code1"></label
+              ><textarea class="form-control" id="code1">
+<script>alert('xss');</script></textarea
+              ><br /><br />
             </div>
+
+            <div class="float2">
+              <a
+                id="runButton3"
+                style="float: right"
+                class="btn btn-sm btn-success text-right"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                  />
+                </svg>
+                <span class="align-middle"> Run</span></a
+              >
+              <h5><span class="lnr lnr-smile"> 安全代码 </span></h5>
+              <label for="code3"></label
+              ><textarea class="form-control" id="code3">
+<script>alert('xss');</script></textarea
+              ><br /><br />
+            </div>
+          </div>
         </main>
+      </div>
     </div>
-</div>
 
-<!-- 引入script -->
-<div th:replace="~{commons/commons::script}"></div>
+    <!-- 引入script -->
+    <div th:replace="~{commons/commons::script}"></div>
 
-<script>
-    // Handle the button click event
-      document.getElementById('runButton1').addEventListener('click', function() {
-        var content = document.getElementById('code1').value; // Get the content of the textarea
-    console.log(content);
-        // Construct the URL with the content as a query parameter
-        var url = '/XSS/escapeCss?content=' + encodeURIComponent(content);
+    <script>
+      // Handle the button click event
+      document
+        .getElementById("runButton1")
+        .addEventListener("click", function () {
+          var content = document.getElementById("code1").value; // Get the content of the textarea
+          console.log(content);
+          // Construct the URL with the content as a query parameter
+          var url = "/XSS/escapeCss?content=" + encodeURIComponent(content);
 
-        // Make a GET request to the constructed URL
-        fetch(url)
-          .then(response => response.text())
-          .then(data => {
-            // Handle the response from the server
-            console.log(data);
-                   // 打开一个新窗口或标签页
-               var newWindow = window.open("", "_blank");
+          // Make a GET request to the constructed URL
+          fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+              // Handle the response from the server
+              console.log(data);
+              // 打开一个新窗口或标签页
+              var newWindow = window.open("", "_blank");
+              // 等待新窗口加载完毕后执行逻辑
+              newWindow.onload = function () {
+                // 打开一个新的HTML文档流
+                newWindow.document.open();
 
-               // 在新窗口中写入返回的数据
-               newWindow.document.write("<pre>" + data + "</pre>"+"<img src=" + data + ">");
-          })
-          .catch(error => {
-            // Handle any errors that occur during the request
-            console.error('Error:', error);
-          });
-      });
+                // 写入HTML内容
+                var newContent =
+                  "<html><head><title>A New Doc</title></head><body>";
+                newContent += "<pre>" + data + "</pre>";
+                newContent += "<style>" + data + "<\/style>";
+                newContent += "<img src='" + data + "' />";
+                newContent += "</body></html>";
 
-        document.getElementById('runButton3').addEventListener('click', function() {
-        var content = document.getElementById('code3').value; // Get the content of the textarea
+                // 将新内容写入新文档
+                newWindow.document.write(newContent);
 
-        // Construct the URL with the content as a query parameter
-        var url = '/xss/security/escapeCss?content=' + encodeURIComponent(content);
+                // 关闭新文档流
+                newWindow.document.close();
+              };
+            })
+            .catch((error) => {
+              // Handle any errors that occur during the request
+              console.error("Error:", error);
+            });
+        });
 
-        // Make a GET request to the constructed URL
-        fetch(url)
-          .then(response => response.text())
-          .then(data => {
-            // Handle the response from the server
-            console.log(data);
-                     // 打开一个新窗口或标签页
-               var newWindow = window.open("", "_blank");
+      document
+        .getElementById("runButton3")
+        .addEventListener("click", function () {
+          var content = document.getElementById("code3").value; // Get the content of the textarea
 
-               // 在新窗口中写入返回的数据
-               newWindow.document.write("<pre>" + data + "</pre>"+"<img src=" + data + ">");
-          })
-          .catch(error => {
-            // Handle any errors that occur during the request
-            console.error('Error:', error);
-          });
-      });
-</script>
+          // Construct the URL with the content as a query parameter
+          var url =
+            "/xss/security/escapeCss?content=" + encodeURIComponent(content);
 
-</body>
+          // Make a GET request to the constructed URL
+          fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+              // Handle the response from the server
+              console.log(data);
+              // 打开一个新窗口或标签页
+              var newWindow = window.open("", "_blank");
+              // 等待新窗口加载完毕后执行逻辑
+              newWindow.onload = function () {
+                // 打开一个新的HTML文档流
+                newWindow.document.open();
 
+                // 写入HTML内容
+                var newContent =
+                  "<html><head><title>A New Doc</title></head><body>";
+                newContent += "<pre>" + data + "</pre>";
+                newContent += "<style>" + data + "<\/style>";
+                newContent += "<img src='" + data + "' />";
+                newContent += "</body></html>";
+
+                // 将新内容写入新文档
+                newWindow.document.write(newContent);
+
+                // 关闭新文档流
+                newWindow.document.close();
+              };
+            })
+            .catch((error) => {
+              // Handle any errors that occur during the request
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
 </html>

@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{commons/commons::head}"></div>
+  <div th:replace="~{commons/commons::head}"></div>
 
-<body>
-<!-- 顶部导航栏 -->
-<div th:replace="~{commons/commons::topbar}"></div>
+  <body>
+    <!-- 顶部导航栏 -->
+    <div th:replace="~{commons/commons::topbar}"></div>
 
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+      <div class="row">
         <!-- 侧边栏 -->
-        <div th:replace="~{commons/commons::siderbar(active='filterRichText.html')}"></div>
+        <div
+          th:replace="~{commons/commons::siderbar(active='filterRichText.html')}"
+        ></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="vul_header">
-                <span>富文本框内容过滤</span>
-            </div>
-            <h3></h3>
-            <hr>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#aa"><span class="lnr lnr-bug"></span>
-                        漏洞描述</a>
-                </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>-->
-<!--                </li>-->
-            </ul>
+          <div class="vul_header">
+            <span>富文本框内容过滤</span>
+          </div>
+          <h3></h3>
+          <hr />
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#aa"
+                ><span class="lnr lnr-bug"></span> 漏洞描述</a
+              >
+            </li>
+            <!--                <li class="nav-item">-->
+            <!--                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>-->
+            <!--                </li>-->
+          </ul>
 
-            <div class="tab-content">
-                <div class="tab-pane dec shadow-sm p-3 mb-4 rounded active" id="aa">
-                    【05-富文本】：对输入进行验证和过滤，采用黑过滤，允许特定的 HTML 标签、属性和样式，过滤掉危险的标记和属性
-                </div>
-                <div class="tab-pane fade" id="bb">
-                    <label for="coder"></label><textarea disabled="disabled"
-                                                         class="form-control shadow-sm p-3 mb-5 rounded" id="coder"
-                                                         style="height: 260px;">
+          <div class="tab-content">
+            <div class="tab-pane dec shadow-sm p-3 mb-4 rounded active" id="aa">
+              【05-富文本】：对输入进行验证和过滤，采用黑过滤，允许特定的 HTML
+              标签、属性和样式，过滤掉危险的标记和属性
+            </div>
+            <div class="tab-pane fade" id="bb">
+              <label for="coder"></label
+              ><textarea
+                disabled="disabled"
+                class="form-control shadow-sm p-3 mb-5 rounded"
+                id="coder"
+                style="height: 260px"
+              >
 【必须】外部输入拼接到response页面前进行编码处理
  当响应“content-type”为“html”类型时，外部输入拼接到响应包中，需根据输出位置进行编码处理,需要对以下6个特殊字符进行HTML实体编码(&, <, >, ", ',/)，也可参考或直接使用业界已有成熟第三方库如ESAPI。
 
@@ -43,125 +51,181 @@
 
 【建议】设置安全的HTTP响应头
  控制用户登录鉴权的Cookie字段 应当设置HttpOnly属性以防止被XSS漏洞/JavaScript操纵泄漏。
-                    </textarea>
-                </div>
+                    </textarea
+              >
             </div>
-            <hr>
+          </div>
+          <hr />
 
-            <div class="box-float">
-                <div class="float1">
-                    <h5><span class="lnr lnr-bug"> 漏洞代码</span></h5>
+          <div class="box-float">
+            <div class="float1">
+              <h5><span class="lnr lnr-bug"> 漏洞代码</span></h5>
 
-                    <form id="myForm" method="post">
-                        <button type="submit" class="btn btn-sm btn-danger" style="float: right;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                            </svg>
-                            <span class="align-middle"> Run</span>
-                        </button>
-                        <textarea id="mytextarea">Hello, World!<script>alert('xss');</script></textarea>
-                        <br>
-                    </form><br><br>
-                </div>
-
-                <div class="float2">
-                    <h5><span class="lnr lnr-smile"> 安全代码 </span></h5>
-                    <form id="myForm2" method="post">
-                        <button type="submit" class="btn btn-sm btn-success text-right" style="float: right;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                            </svg>
-                            <span class="align-middle"> Run</span>
-                        </button>
-                        <textarea id="mytextarea2">Hello, World!<script>alert('xss');</script></textarea>
-                        <br>
-                    </form><br><br>
-                </div>
-
+              <form id="myForm" method="post">
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-danger"
+                  style="float: right"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                    />
+                  </svg>
+                  <span class="align-middle"> Run</span>
+                </button>
+                <textarea id="mytextarea">
+Hello, World!</textarea
+                >
+                <br />
+              </form>
+              <br /><br />
             </div>
+
+            <div class="float2">
+              <h5><span class="lnr lnr-smile"> 安全代码 </span></h5>
+              <form id="myForm2" method="post">
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-success text-right"
+                  style="float: right"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                    />
+                  </svg>
+                  <span class="align-middle"> Run</span>
+                </button>
+                <textarea id="mytextarea2">
+Hello, World!</textarea
+                >
+                <br />
+              </form>
+              <br /><br />
+            </div>
+          </div>
         </main>
+      </div>
     </div>
 
+    <!-- 引入script -->
+    <div th:replace="~{commons/commons::script}"></div>
 
-</div>
-
-<!-- 引入script -->
-<div th:replace="~{commons/commons::script}"></div>
-
-<script>
-    tinymce.init({
-      selector: '#mytextarea'
-    });
-      // Handle the form submission event
-      document.getElementById('myForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission
-
-        var content = tinymce.get('mytextarea').getContent(); // Get the content of the TinyMCE editor
-        console.log(content);
-        // Perform any additional processing or validation of the content here
-
-        // Submit the form data to the server
-        fetch('/XSS/filterRichText', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ content: content })
-        })
-        .then(response => response.text())
-        .then(data => {
-          // Handle the response from the server
-          console.log(data);
-                        // 打开一个新窗口或标签页
-           var newWindow = window.open("", "_blank");
-
-           // 在新窗口中写入返回的数据
-           newWindow.document.write( data);
-        })
-        .catch(error => {
-          // Handle any errors that occur during the request
-          console.error('Error:', error);
-        });
+    <script>
+      tinymce.init({
+        selector: "#mytextarea",
       });
-
-
-    tinymce.init({
-      selector: '#mytextarea2'
-    });
       // Handle the form submission event
-      document.getElementById('myForm2').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent the default form submission
 
-        var content = tinymce.get('mytextarea2').getContent(); // Get the content of the TinyMCE editor
-        console.log(content);
-        // Perform any additional processing or validation of the content here
+          var content = tinymce.get("mytextarea").getContent(); // Get the content of the TinyMCE editor
+          console.log(content);
+          // Perform any additional processing or validation of the content here
 
-        // Submit the form data to the server
-        fetch('/xss/security/filterRichText', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ content: content })
-        })
-        .then(response => response.text())
-        .then(data => {
-          // Handle the response from the server
-          console.log(data);
-                         // 打开一个新窗口或标签页
-           var newWindow = window.open("", "_blank");
+          // Submit the form data to the server
+          fetch("/XSS/filterRichText", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ content: content }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              // Handle the response from the server
+              console.log(data);
+              // 打开一个新窗口或标签页
+              var newWindow = window.open("", "_blank");
+              // 等待新窗口加载完毕后执行逻辑
+              newWindow.onload = function () {
+                // 打开一个新的HTML文档流
+                newWindow.document.open();
 
-           // 在新窗口中写入返回的数据
-           newWindow.document.write("<pre>" + data + "</pre>");
-        })
-        .catch(error => {
-          // Handle any errors that occur during the request
-          console.error('Error:', error);
+                // 写入HTML内容
+                var newContent =
+                  "<html><head><title>A New Doc</title></head><body>";
+                newContent += "<pre>" + data + "</pre>";
+                newContent += "</body></html>";
+
+                // 将新内容写入新文档
+                newWindow.document.write(newContent);
+
+                // 关闭新文档流
+                newWindow.document.close();
+              };
+            })
+            .catch((error) => {
+              // Handle any errors that occur during the request
+              console.error("Error:", error);
+            });
         });
+
+      tinymce.init({
+        selector: "#mytextarea2",
       });
-</script>
+      // Handle the form submission event
+      document
+        .getElementById("myForm2")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent the default form submission
 
+          var content = tinymce.get("mytextarea2").getContent(); // Get the content of the TinyMCE editor
+          console.log(content);
+          // Perform any additional processing or validation of the content here
 
-</body>
+          // Submit the form data to the server
+          fetch("/xss/security/filterRichText", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ content: content }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              // Handle the response from the server
+              console.log(data);
+              // 打开一个新窗口或标签页
+              var newWindow = window.open("", "_blank");
+              // 等待新窗口加载完毕后执行逻辑
+              newWindow.onload = function () {
+                // 打开一个新的HTML文档流
+                newWindow.document.open();
 
+                // 写入HTML内容
+                var newContent =
+                  "<html><head><title>A New Doc</title></head><body>";
+                newContent += "<pre>" + data + "</pre>";
+                newContent += "</body></html>";
+
+                // 将新内容写入新文档
+                newWindow.document.write(newContent);
+
+                // 关闭新文档流
+                newWindow.document.close();
+              };
+            })
+            .catch((error) => {
+              // Handle any errors that occur during the request
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
 </html>
