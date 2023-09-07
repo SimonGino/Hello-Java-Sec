@@ -1,6 +1,5 @@
 package com.best.hello.controller.XSS;
 
-import com.best.hello.entity.Person;
 import com.best.hello.util.Security;
 import com.yumchina.architecture.framework.starter.security.utils.YumXssUtil;
 import io.swagger.annotations.Api;
