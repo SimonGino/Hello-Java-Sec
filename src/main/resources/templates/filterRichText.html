@@ -13,7 +13,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="vul_header">
-                <span>filterRichText</span>
+                <span>富文本框内容过滤</span>
             </div>
             <h3></h3>
             <hr>
@@ -22,15 +22,14 @@
                     <a class="nav-link active" data-toggle="tab" href="#aa"><span class="lnr lnr-bug"></span>
                         漏洞描述</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>-->
+<!--                </li>-->
             </ul>
 
             <div class="tab-content">
                 <div class="tab-pane dec shadow-sm p-3 mb-4 rounded active" id="aa">
-                    XSS(Cross Site
-                    Scripting) 跨站脚本攻击，攻击者插入恶意Script代码,当用户浏览该页之时,嵌入其中Web里面的Script代码会被执行,从而达到恶意攻击用户的目的。
+                    【05-富文本】：对输入进行验证和过滤，采用黑过滤，允许特定的 HTML 标签、属性和样式，过滤掉危险的标记和属性
                 </div>
                 <div class="tab-pane fade" id="bb">
                     <label for="coder"></label><textarea disabled="disabled"
@@ -60,7 +59,7 @@
                             </svg>
                             <span class="align-middle"> Run</span>
                         </button>
-                        <textarea id="mytextarea">Hello, World!</textarea>
+                        <textarea id="mytextarea">Hello, World!<script>alert('xss');</script></textarea>
                         <br>
                     </form><br><br>
                 </div>
@@ -74,7 +73,7 @@
                             </svg>
                             <span class="align-middle"> Run</span>
                         </button>
-                        <textarea id="mytextarea2">Hello, World!</textarea>
+                        <textarea id="mytextarea2">Hello, World!<script>alert('xss');</script></textarea>
                         <br>
                     </form><br><br>
                 </div>

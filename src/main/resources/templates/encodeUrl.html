@@ -13,7 +13,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="vul_header">
-                <span>encodeUrl</span>
+                <span>Url内容编码</span>
             </div>
             <h3></h3>
             <hr>
@@ -22,15 +22,17 @@
                     <a class="nav-link active" data-toggle="tab" href="#aa"><span class="lnr lnr-bug"></span>
                         漏洞描述</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" data-toggle="tab" href="#bb"><span class="lnr lnr-bullhorn"></span> 安全编码</a>-->
+<!--                </li>-->
             </ul>
 
             <div class="tab-content">
                 <div class="tab-pane dec shadow-sm p-3 mb-4 rounded active" id="aa">
-                    XSS(Cross Site
-                    Scripting) 跨站脚本攻击，攻击者插入恶意Script代码,当用户浏览该页之时,嵌入其中Web里面的Script代码会被执行,从而达到恶意攻击用户的目的。
+                    【04-URL内容】：使用URL编码算法进行编码，防止解析为恶意代码或攻击载荷<br>
+                    编码字符为 application/x-www-form-urlencoded<br>
+                    将需要转换的内容（ASCII码形式之外的内容），用十六进制表示法转换出来，并在之前加上%开头。<br>
+                    此方法用于URL自动编码，类似于浏览器中键入地址自动编码，对于像类似于“/”的字符不再编码<br>
                 </div>
                 <div class="tab-pane fade" id="bb">
                     <label for="coder"></label><textarea disabled="disabled"
@@ -59,7 +61,7 @@
                         <span class="align-middle"> Run</span></a>
                     <h5><span class="lnr lnr-bug"> 漏洞代码</span></h5>
 
-                    <label for="code1"></label><textarea class="form-control" id="code1"></textarea><br><br>
+                    <label for="code1"></label><textarea class="form-control" id="code1"><script>alert('xss');</script></textarea><br><br>
                 </div>
 
                 <div class="float2">
@@ -70,7 +72,7 @@
                         </svg>
                         <span class="align-middle"> Run</span></a>
                     <h5><span class="lnr lnr-smile"> 安全代码 </span></h5>
-                    <label for="code3"></label><textarea class="form-control" id="code3"></textarea><br><br>
+                    <label for="code3"></label><textarea class="form-control" id="code3"><script>alert('xss');</script></textarea><br><br>
                 </div>
 
             </div>

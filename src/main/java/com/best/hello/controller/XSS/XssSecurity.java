@@ -34,7 +34,9 @@ public class XssSecurity {
     @GetMapping("/escapeHtml")
     public static String escapeHtml(String content) {
         log.info("[vul] 反射型XSS：" + content);
-        return YumXssUtil.escapeHtml(content);
+        String escapeHtml = YumXssUtil.escapeHtml(content);
+        log.info("escapeHtml 转义后=" + escapeHtml);
+        return escapeHtml;
     }
 
     @ApiOperation(value = "vul: 反射型XSS")

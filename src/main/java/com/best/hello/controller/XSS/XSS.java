@@ -66,8 +66,7 @@ public class XSS {
     @PostMapping("/filterRichText")
     public static String safe4(@RequestBody RichTextDTO richTextDTO) {
         log.info("[safe] filterRichText：" + richTextDTO);
-        String content = HtmlUtils.htmlUnescape(richTextDTO.getContent());
-        return content;
+        return HtmlUtils.htmlUnescape(richTextDTO.getContent());
     }
 
 
