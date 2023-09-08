@@ -146,10 +146,10 @@
               var newWindow = window.open("", "_blank");
 
               // 写入HTML内容
-              var newContent =
-                "<html><head><title>A New Doc</title></head><body>";
-              newContent += "<pre>" + data + "</pre>";
+              var newContent = "<html><head><title>A New Doc</title>";
               newContent += "<script>" + data + "<\/script>";
+              newContent += "</head><body>";
+              newContent += "<pre>" + data + "</pre>";
               newContent += "<img src='" + data + "' />";
               newContent += "</body></html>";
 
@@ -181,10 +181,10 @@
               var newWindow = window.open("", "_blank");
 
               // 写入HTML内容
-              var newContent =
-                "<html><head><title>A New Doc</title></head><body>";
-              newContent += "<pre>" + data + "</pre>";
+              var newContent = "<html><head><title>A New Doc</title>";
               newContent += "<script>" + data + "<\/script>";
+              newContent += "</head><body>";
+              newContent += "<pre>" + data + "</pre>";
               newContent += "<img src='" + data + "' />";
               newContent += "</body></html>";
 

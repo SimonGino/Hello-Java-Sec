@@ -143,11 +143,12 @@
               // 打开一个新窗口或标签页
               var newWindow = window.open("", "_blank");
 
+
               // 写入HTML内容
-              var newContent =
-                "<html><head><title>A New Doc</title></head><body>";
-              newContent += "<pre>" + data + "</pre>";
+              var newContent = "<html><head><title>A New Doc</title>";
               newContent += "<style>" + data + "<\/style>";
+              newContent += "</head><body>";
+              newContent += "<pre>" + data + "</pre>";
               newContent += "<img src='" + data + "' />";
               newContent += "</body></html>";
 
@@ -178,11 +179,11 @@
               // 打开一个新窗口或标签页
               var newWindow = window.open("", "_blank");
 
-              // 写入HTML内容
-              var newContent =
-                "<html><head><title>A New Doc</title></head><body>";
-              newContent += "<pre>" + data + "</pre>";
+               // 写入HTML内容
+               var newContent = "<html><head><title>A New Doc</title>";
               newContent += "<style>" + data + "<\/style>";
+              newContent += "</head><body>";
+              newContent += "<pre>" + data + "</pre>";
               newContent += "<img src='" + data + "' />";
               newContent += "</body></html>";
 
