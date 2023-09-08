@@ -17,7 +17,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
             return true;
         }*/
         String requestURI = request.getRequestURI();
-        if (requestURI.equals("/") || requestURI.equals("/login") || requestURI.equals("/index")) {
+        if (requestURI.equals("/") || requestURI.equals("/login") || requestURI.equals("/index")|| requestURI.equals("/xss")) {
             response.sendRedirect(request.getContextPath() + "/index/xss/escapeHtml");
             return false; // 阻止后续的请求处理
         }

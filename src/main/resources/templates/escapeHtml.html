@@ -144,23 +144,15 @@
               console.log(data);
               // 打开一个新窗口或标签页
               var newWindow = window.open("", "_blank");
-              // 等待新窗口加载完毕后执行逻辑
-              newWindow.onload = function () {
-                // 打开一个新的HTML文档流
-                newWindow.document.open();
 
-                // 写入HTML内容
-                var newContent =
-                  "<html><head><title>A New Doc</title></head><body>";
-                newContent += "<pre>" + data + "</pre>";
-                newContent += "</body></html>";
+              // 写入HTML内容
+              var newContent =
+                "<html><head><title>A New Doc</title></head><body>";
+              newContent += "<pre>" + data + "</pre>";
+              newContent += "</body></html>";
 
-                // 将新内容写入新文档
-                newWindow.document.write(newContent);
-
-                // 关闭新文档流
-                newWindow.document.close();
-              };
+              // 将新内容写入新文档
+              newWindow.document.write(newContent);
             })
             .catch((error) => {
               // Handle any errors that occur during the request
@@ -185,23 +177,15 @@
               console.log(data);
               // 打开一个新窗口或标签页
               var newWindow = window.open("", "_blank");
-              // 等待新窗口加载完毕后执行逻辑
-              newWindow.onload = function () {
-                // 打开一个新的HTML文档流
-                newWindow.document.open();
 
-                // 写入HTML内容
-                var newContent =
-                  "<html><head><title>A New Doc</title></head><body>";
-                newContent += "<pre>" + data + "</pre>";
-                newContent += "</body></html>";
+              // 写入HTML内容
+              var newContent =
+                "<html><head><title>A New Doc</title></head><body>";
+              newContent += "<pre>" + data + "</pre>";
+              newContent += "</body></html>";
 
-                // 将新内容写入新文档
-                newWindow.document.write(newContent);
-
-                // 关闭新文档流
-                newWindow.document.close();
-              };
+              // 将新内容写入新文档
+              newWindow.document.write(newContent);
             })
             .catch((error) => {
               // Handle any errors that occur during the request
