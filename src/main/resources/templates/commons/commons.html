@@ -51,8 +51,8 @@
 <!--               href="https://github.com/Tencent/secguide/blob/main/Java%E5%AE%89%E5%85%A8%E6%8C%87%E5%8D%97.md">安全编码指南</a>-->
 <!--            <a class="btn btn-sm btn-default" style="color:white" target="_blank"-->
 <!--               href="https://github.com/j3ers3/Hello-Java-Sec">Github</a>-->
-            <a th:if="${session.LoginUser} == null" class="btn btn-sm btn-default" style="color:white"
-               th:href="@{/login}"> 登录</a>
+<!--            <a th:if="${session.LoginUser} == null" class="btn btn-sm btn-default" style="color:white"-->
+<!--               th:href="@{/login}"> 登录</a>-->
             <a th:if="${session.LoginUser} != null" class="btn btn-sm btn-default" style="color:white"
                th:text="${session.LoginUser}"></a>
             <a th:if="${session.LoginUser} != null" class="btn btn-sm btn-default" style="color:white"

@@ -135,7 +135,7 @@ body {
 
 /* 激活后的背景样式 */
 .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
-    background-color: #252c35;
+    background-color: #f6f8fa;
     border-left-color: #00AAFF;
 }
 
