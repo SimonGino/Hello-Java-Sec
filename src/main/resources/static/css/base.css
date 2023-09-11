@@ -14,10 +14,11 @@ body {
     padding: 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     width: 230px;
+    background-color: #FFF!important;
 }
 
 .sticky-top {
-    background-color: #224b8f;
+    background-color: #001447;
 }
 
 .sidebar-sticky {
@@ -32,13 +33,13 @@ body {
 /* 侧边栏字体 */
 .sidebar .nav-link {
     font-weight: 500;
-    color: #AEB7C2;
+    color: #333;
 }
 
 /* 侧边栏样式 */
 .sidebar .nav > li > a {
     padding: 9px 25px; /* 上下内边距是 10px，左右内边距是 30px*/
-    color: #AEB7C2;
+    color: #333;
     border-left: 4px solid transparent; /* 左边样式 */
 }
 
@@ -78,7 +79,8 @@ body {
 
 /* 子菜单 */
 .sidebar .nav .nav {
-    background-color: #252c35;
+    background-color: #FFF;
+    margin-right: 2px;
 }
 
 /* 子菜单布局 */
@@ -95,7 +97,7 @@ body {
 }
 
 .sidebar .nav .nav > li > a.active a {
-    color: #fff;
+    color: #005FE0;
 }
 
 
@@ -111,12 +113,12 @@ body {
 
 /* 鼠标放上去字体颜色变白 */
 .sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
-    color: #fff;
+    color: #005FE0;
     background-color: transparent;
 }
 
 .sidebar .nav .nav > li > a:hover, .sidebar .nav .nav > li > a:focus, .sidebar .nav .nav > li > a.active {
-    color: #fff;
+    color: #005FE0;
     background-color: transparent;
     border-left-color: transparent;
 }
