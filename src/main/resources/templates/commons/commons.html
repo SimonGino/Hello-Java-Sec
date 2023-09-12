@@ -102,7 +102,29 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a href="#xss_global_submenu" data-toggle="collapse"
+                   th:class="${(active=='xstream.html' || active=='shiro.html' || active=='fastjson.html' || active=='log4j.html' || active=='jackson.html') ? 'nav-link active':'nav-link'}"><i
+                        class="lnr lnr-drop"></i>
+                    <span>XSS全局过滤</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 
+                <div id="xss_global_submenu"
+                     th:class="${(active=='globalEscapeHtml.html' || active=='globalFilterRichText.html') ? 'collapsed':'collapse'}">
+                    <ul class="nav flex-column">
+                        <li>
+                            <a th:class="${active=='globalEscapeHtml.html' ? 'nav-link active':'nav-link'}"
+                               th:href="@{/index/xss/global/escapeHtml}">
+                                <i class="lnr lnr-bug"></i><span>HTML内容转义</span></a>
+                        </li>
+                        <li>
+                            <a th:class="${active=='globalFilterRichText.html' ? 'nav-link active':'nav-link'}"
+                               th:href="@{/index/xss/global/filterRichText}">
+                                <i class="lnr lnr-bug"></i><span>富文本框内容过滤</span></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
 <!--            <li class="nav-item">-->
 <!--                <a th:class="${(active=='xss.html') ? 'nav-link active':'nav-link'}" th:href="@{/index/xss}">-->
 <!--                    <i class="lnr lnr-cross"></i><span>XSS</span>-->

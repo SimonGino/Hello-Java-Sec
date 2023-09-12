@@ -18,6 +18,8 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/index/xss/escapeCss").setViewName("escapeCss");
         registry.addViewController("/index/xss/encodeUrl").setViewName("encodeUrl");
         registry.addViewController("/index/xss/filterRichText").setViewName("filterRichText");
+        registry.addViewController("/index/xss/global/escapeHtml").setViewName("globalEscapeHtml");
+        registry.addViewController("/index/xss/global/filterRichText").setViewName("globalFilterRichText");
 //        registry.addViewController("/index/rce").setViewName("rce");
 //        registry.addViewController("/index/spel").setViewName("spel");
 //        registry.addViewController("/index/ssti").setViewName("ssti");

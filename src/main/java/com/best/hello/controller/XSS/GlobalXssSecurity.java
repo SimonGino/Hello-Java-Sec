@@ -1,5 +1,6 @@
 package com.best.hello.controller.XSS;
 
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.jsoup.Jsoup;
@@ -22,24 +23,24 @@ import java.io.IOException;
 
 @Api("XSS漏洞")
 @RestController
-@RequestMapping("/XSS")
-public class XSS {
+@RequestMapping("/global/xss/security")
+public class GlobalXssSecurity {
 
-    static Logger log = LoggerFactory.getLogger(XSS.class);
+    static Logger log = LoggerFactory.getLogger(XssSecurity.class);
 
     @ApiOperation(value = "vul: 反射型XSS")
     @GetMapping("/escapeHtml")
     public static String escapeHtml(String content) {
-        log.info("[vul] 反射型XSS：" + content);
+        log.info("[vul] 全局过滤后XSS：" + content);
         return content;
     }
 
-
     @ApiOperation(value = "vul: 反射型XSS")
-    @GetMapping("/escapeJavascript")
-    public static String escapeJavascript(String content) {
+    @GetMapping("/javascript")
+    public static String javascript(String content) {
         log.info("[vul] 反射型XSS：" + content);
-        return content;
+//        return YumXssUtil.escapeJavaScript(content);
+        return null;
     }
 
 
@@ -48,7 +49,8 @@ public class XSS {
     @GetMapping("/escapeCss")
     public static String escapeCss(String content) {
         log.info("[vul] 反射型XSS：" + content);
-        return content;
+//        return YumXssUtil.escapeCss(content);
+        return null;
     }
 
 
@@ -57,24 +59,17 @@ public class XSS {
     @GetMapping("/encodeUrl")
     public static String encodeUrl(String content) {
         log.info("[vul] 反射型XSS：" + content);
-        return content;
+//        return YumXssUtil.encodeUrl(content);
+        return null;
     }
-
-    @ApiOperation(value = "safe: ESAPI", notes = "采用ESAPI过滤")
-    @PostMapping("/filterRichText")
-    public static String safe4(@RequestBody RichTextDTO richTextDTO) {
-        log.info("[safe] filterRichText：" + richTextDTO);
-        return HtmlUtils.htmlUnescape(richTextDTO.getContent());
-    }
-
 
     @ApiOperation(value = "vul: 反射型XSS")
-    @GetMapping("/reflect")
-    public static String vul1(String content) {
-        log.info("[vul] 反射型XSS：" + content);
+    @PostMapping("/filterRichText")
+    public static String filterRichText(@RequestBody RichTextDTO richTextDTO) {
+        log.info("[vul] 全局过滤后XSS：" + richTextDTO);
+        String content = richTextDTO.getContent();
         return content;
     }
-
 
     @GetMapping("/vul2")
     public static void vul2(String content, HttpServletResponse response) {
@@ -118,6 +113,11 @@ public class XSS {
         return ESAPI.encoder().encodeForHTML(content);
     }
 
-
+//    @ApiOperation(value = "safe: ESAPI", notes = "采用ESAPI过滤")
+//    @PostMapping("/filterRichText")
+//    public static String safe4(@RequestBody Person person) {
+//        log.info("[safe] filterRichText：" + person);
+//        return person.getName();
+//    }
 
 }
