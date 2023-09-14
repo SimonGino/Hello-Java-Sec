@@ -128,9 +128,12 @@ http://www.baidu.com?content=<script>alert('xss');</script></textarea
         .getElementById("runButton1")
         .addEventListener("click", function () {
           var content = document.getElementById("code1").value; // Get the content of the textarea
+          var params = content.split("=");
+            var key = params[0];
+            var value = params[1];
           console.log(content);
           // Construct the URL with the content as a query parameter
-          var url = "/XSS/encodeUrl?content=" + encodeURIComponent(content);
+          var url = "/XSS/encodeUrl?content=" + encodeURIComponent(value);
 
           // Make a GET request to the constructed URL
           fetch(url)
@@ -144,8 +147,7 @@ http://www.baidu.com?content=<script>alert('xss');</script></textarea
               // 写入HTML内容
               var newContent =
                 "<html><head><title>A New Doc</title></head><body>";
-              // newContent += "<a herf=" + data + "</a>";
-              newContent += "<a href='" + data + "'>" + data + "</a>";
+              newContent += "<a href='" + key + "=" + data + "'>" + key + "=" + data + "</a>";
               newContent += "</body></html>";
 
               // 将新内容写入新文档
@@ -161,10 +163,12 @@ http://www.baidu.com?content=<script>alert('xss');</script></textarea
         .getElementById("runButton3")
         .addEventListener("click", function () {
           var content = document.getElementById("code3").value; // Get the content of the textarea
-
+          var params = content.split("=");
+             var key = params[0];
+            var value = params[1];
           // Construct the URL with the content as a query parameter
           var url =
-            "/xss/security/encodeUrl?content=" + encodeURIComponent(content);
+            "/xss/security/encodeUrl?content=" + encodeURIComponent(value);
 
           // Make a GET request to the constructed URL
           fetch(url)
@@ -179,7 +183,7 @@ http://www.baidu.com?content=<script>alert('xss');</script></textarea
               var newContent =
                 "<html><head><title>A New Doc</title></head><body>";
               // newContent += "<a herf=" + data + "</a>";
-              newContent += "<a href='" + data + "'>" + data + "</a>";
+              newContent += "<a href='" + key + "=" + data + "'>" + key + "=" + data + "</a>";
               newContent += "</body></html>";
 
               // 将新内容写入新文档
