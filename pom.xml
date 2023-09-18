@@ -275,19 +275,19 @@
             <version>0.9.5.2</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.yumchina.architecture.framework</groupId>-->
-<!--            <artifactId>yumchina-security-spring-boot-starter</artifactId>-->
-<!--            <version>2.5.0-SNAPSHOT</version>-->
-<!--            <scope>system</scope>-->
-<!--            <systemPath>${pom.basedir}/conf/yumchina-security-spring-boot-starter-2.5.0-SNAPSHOT.jar</systemPath>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.yumchina.architecture.framework</groupId>
+            <artifactId>yumchina-security-spring-boot-starter</artifactId>
+            <version>2.5.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/conf/yumchina-security-spring-boot-starter-2.5.0-SNAPSHOT.jar</systemPath>
+        </dependency>
 
-                <dependency>
-                    <groupId>com.yumchina.architecture.framework</groupId>
-                    <artifactId>yumchina-security-spring-boot-starter</artifactId>
-                    <version>2.5.2</version>
-                </dependency>
+<!--                <dependency>-->
+<!--                    <groupId>com.yumchina.architecture.framework</groupId>-->
+<!--                    <artifactId>yumchina-security-spring-boot-starter</artifactId>-->
+<!--                    <version>2.5.2</version>-->
+<!--                </dependency>-->
         <dependency>
             <groupId>com.yumchina.architecture.framework</groupId>
             <artifactId>yumchina-metrics-spring-boot-starter</artifactId>
